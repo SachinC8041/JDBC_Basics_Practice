@@ -48,7 +48,11 @@ public class JDBC_Operations
             ps.setString(1, fname);
             ps.setInt(2,id);
             int rows = ps.executeUpdate();
-            System.out.println(rows + " rows Updated.");
+            if (rows > 0) {
+                System.out.println("Student updated successfully!");
+            } else {
+                System.out.println("No student found with given ID");
+            }
             ps.close();
 
         }catch( Exception e){
